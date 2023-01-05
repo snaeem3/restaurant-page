@@ -1,0 +1,1 @@
+(()=>{const e=document.querySelector("#content"),t=(document.createElement("img"),document.createElement("header")),n=document.createElement("h1");n.textContent="Ralph's Restaurant",t.appendChild(n),e.appendChild(t)})();
