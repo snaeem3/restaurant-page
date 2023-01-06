@@ -11,9 +11,27 @@ export default function loadPage() {
 }
 
 function createHeader() {
+    // Restaurant name
     const header  = document.createElement('header');
-    const restaurantHeader = document.createElement('h1');
-    restaurantHeader.textContent = "Maria's Restaurant";
-    header.appendChild(restaurantHeader);
+    const restaurantName = document.createElement('h1');
+    restaurantName.textContent = "Maria's Restaurant";
+
+    // Home Menu Contact
+    const nav = document.createElement('nav');
+    const pageList = document.createElement('ul');
+    const home = document.createElement('li');
+    const menu = document.createElement('li');
+    const contact = document.createElement('li');
+
+    home.textContent = 'Home';
+    menu.textContent = 'Menu';
+    contact.textContent = 'Contact';
+
+    pageList.append(home,menu,contact);
+    nav.appendChild(pageList);
+
+    header.appendChild(restaurantName);
+    header.appendChild(nav);
+
     contentDiv.appendChild(header);
 }
