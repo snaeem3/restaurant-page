@@ -32,10 +32,10 @@ function createHeader() {
   pageList.append(home, menu, contact);
   nav.appendChild(pageList);
 
-  // header.appendChild(restaurantName);
   header.appendChild(nav);
 
   document.body.insertBefore(header, contentDiv);
+  document.body.insertBefore(restaurantName, contentDiv);
 
   home.addEventListener('click', () => {
     clearContents();

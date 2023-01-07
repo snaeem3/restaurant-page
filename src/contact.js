@@ -14,11 +14,12 @@ function loadHeader() {
 
 function loadContactInfo() {
   const contactInfoDiv = document.createElement('div');
-  const emailAddress = document.createElement('p');
+  const emailAddress = document.createElement('a');
   const phoneNumber = document.createElement('p');
 
-  emailAddress.textContent = 'Email: ralphsrestaurant@email.com';
-  phoneNumber.textContent = 'Phone Number: (100)-123-4567';
+  emailAddress.href = 'mailto:ralphsrestaurant@example.com';
+  emailAddress.textContent = 'ralphsrestaurant@example.com';
+  phoneNumber.textContent = '(100)-123-4567';
 
   contactInfoDiv.append(emailAddress, phoneNumber);
   contentDiv.appendChild(contactInfoDiv);
@@ -26,6 +27,7 @@ function loadContactInfo() {
 
 function loadContactForm() {
   const contactForm = document.createElement('form');
+  contactForm.setAttribute('id', 'contactForm');
 
   const nameInput = document.createElement('input');
   setInputValues(nameInput, 'text', 'nameInput', 'nameInput', 'Name');
@@ -48,7 +50,7 @@ function loadContactForm() {
   subjectPlaceholder.selected = true;
   subjectPlaceholder.disabled = true;
   subjectPlaceholder.value = '';
-  subjectPlaceholder.text = 'What would contact us about?';
+  subjectPlaceholder.text = 'What would you like to contact us about?';
   subjectInput.appendChild(subjectPlaceholder);
   const subjectOptions = ['General', 'Press', 'Jobs'];
   subjectOptions.forEach((subjectOption) => {
@@ -67,13 +69,20 @@ function loadContactForm() {
     'Your Message'
   );
 
+  const submitBtn = document.createElement('button');
+  submitBtn.setAttribute('type', 'submit');
+  submitBtn.setAttribute('value', 'Submit');
+  submitBtn.textContent = 'Submit';
+
   contactForm.append(
     nameInput,
     emailInput,
     phoneNumberInput,
     subjectInput,
-    messageInput
+    messageInput,
+    submitBtn
   );
+
   contentDiv.appendChild(contactForm);
 
   function setInputValues(input, type, name, id, placeholder) {

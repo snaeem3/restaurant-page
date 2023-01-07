@@ -1,17 +1,6 @@
 const contentDiv = document.querySelector('#content');
 
 export default function loadMenu() {
-  //   const appetizers = [
-  //     ['Fried Calamari', 9],
-  //     ['Garlic Bread', 6],
-  //     ['Nachos', 7],
-  //   ];
-  //   const entrees = [
-  //     ['Steak', 21],
-  //     ['Spaghetti and Meatballs', 16],
-  //     ['Burrito', 11],
-  //   ];
-
   const menuItems = [
     {
       name: 'Fried Calamari',
@@ -64,11 +53,21 @@ export default function loadMenu() {
 
   currentCategoryDiv.setAttribute('id', currentCategory);
   currentCategoryHeader.textContent = currentCategory;
+  currentCategoryDiv.append(currentCategoryHeader);
+
+  currentCategoryDiv.classList.add('category');
+  currentCategoryHeader.classList.add('category-header');
+
   for (let i = 0; i < menuItems.length; i++) {
     const menuItemDiv = document.createElement('div');
     const menuItemName = document.createElement('h3');
     const menuItemDescription = document.createElement('p');
     const menuItemCost = document.createElement('p');
+
+    menuItemDiv.classList.add('menu-item');
+    menuItemName.classList.add('food-name');
+    menuItemDescription.classList.add('description');
+    menuItemCost.classList.add('cost');
 
     menuItemName.textContent = menuItems[i].name;
     menuItemDescription.textContent = menuItems[i].description;
@@ -78,14 +77,19 @@ export default function loadMenu() {
 
     // create new category
     if (menuItems[i].category !== currentCategory) {
-      contentDiv.append(currentCategoryHeader, currentCategoryDiv);
+      contentDiv.append(currentCategoryDiv);
       currentCategory = menuItems[i].category;
       currentCategoryDiv = document.createElement('div');
       currentCategoryHeader = document.createElement('h2');
       currentCategoryDiv.setAttribute('id', currentCategory);
       currentCategoryHeader.textContent = currentCategory;
+
+      currentCategoryDiv.append(currentCategoryHeader);
+
+      currentCategoryDiv.classList.add('category');
+      currentCategoryHeader.classList.add('category-header');
     }
-    currentCategoryDiv.appendChild(menuItemDiv);
+    currentCategoryDiv.append(menuItemDiv);
   }
-  contentDiv.append(currentCategoryHeader, currentCategoryDiv);
+  contentDiv.append(currentCategoryDiv);
 }
