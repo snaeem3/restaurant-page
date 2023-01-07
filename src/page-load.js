@@ -1,13 +1,12 @@
-import restaurantImgSrc from './images/restaurant1.jpg';
+import loadHome from "./home";
 const contentDiv = document.querySelector('#content');
 
 export default function loadPage() {
     console.log('page-load.js called');
 
-    const restaurantImg = new Image();
-    restaurantImg.src = restaurantImgSrc;
+    
     createHeader();
-    contentDiv.appendChild(restaurantImg);
+    loadHome();
 }
 
 function createHeader() {
@@ -30,7 +29,7 @@ function createHeader() {
     pageList.append(home,menu,contact);
     nav.appendChild(pageList);
 
-    header.appendChild(restaurantName);
+    // header.appendChild(restaurantName);
     header.appendChild(nav);
 
     contentDiv.appendChild(header);
