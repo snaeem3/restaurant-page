@@ -1,4 +1,5 @@
 import loadHome from './home';
+import loadMenu from './menu';
 
 const contentDiv = document.querySelector('#content');
 
@@ -6,14 +7,15 @@ export default function loadPage() {
   console.log('page-load.js called');
 
   createHeader();
-  loadHome();
+  //   loadHome();
+  loadMenu();
 }
 
 function createHeader() {
   // Restaurant name
   const header = document.createElement('header');
   const restaurantName = document.createElement('h1');
-  restaurantName.textContent = "Maria's Restaurant";
+  restaurantName.textContent = "Ralph's Restaurant";
 
   // Home Menu Contact
   const nav = document.createElement('nav');

@@ -30,6 +30,11 @@ function loadRestaurantHours() {
   const hoursArray = [
     ['Monday', '4:00 PM - 10:00 PM'],
     ['Tuesday', '4:00 PM - 10:00 PM'],
+    ['Wednesday', '4:00 PM - 10:00 PM'],
+    ['Thursday', '4:00 PM - 10:00 PM'],
+    ['Friday', '4:00 PM - 11:00 PM'],
+    ['Saturday', '4:00 PM - 11:00 PM'],
+    ['Sunday', '4:00 PM - 10:00 PM'],
   ];
 
   const hoursTable = arrayToTable(hoursArray);
@@ -50,4 +55,13 @@ function loadRestaurantHours() {
 
     return tableResult;
   }
+}
+
+function loadLocation() {
+  const locationHeader = document.createElement('h2');
+  locationHeader.textContent = 'Address';
+  const address = document.createElement('p');
+  address.innerText = '123 Main St \nNew Fork City, New York \n10234';
+
+  contentDiv.append(locationHeader, address);
 }
