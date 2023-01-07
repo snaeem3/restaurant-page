@@ -17,33 +17,45 @@ export default function loadMenu() {
       name: 'Fried Calamari',
       cost: 9,
       description: 'Crispy, beer-battered fried calamari',
-      category: 'appetizer',
+      category: 'Appetizer',
     },
     {
       name: 'Garlic Bread',
       cost: 6,
       description:
         'Cheesy delicious garlic bread made from fresh home-made bread',
-      category: 'appetizer',
+      category: 'Appetizer',
     },
     {
       name: 'Steak',
       cost: 21,
       description: 'Sizzling steak',
-      category: 'entree',
+      category: 'Entree',
     },
     {
       name: 'Hamburger',
       cost: 16,
       description: 'Juicy burger',
-      category: 'entree',
+      category: 'Entree',
+    },
+    {
+      name: 'Chocolate Cake',
+      cost: 10,
+      description: "A decadent, moist chocolate lover's dream",
+      category: 'Dessert',
+    },
+    {
+      name: 'Pumpkin Pie',
+      cost: 9,
+      description: 'A smooth fall-spiced pumpkin pie',
+      category: 'Dessert',
     },
   ];
 
-  // Sort menu items by category
-  menuItems.sort((a, b) =>
-    a.category > b.category ? 1 : b.category > a.category ? -1 : 0
-  );
+  // Sort menu items by category alphabetically
+  // menuItems.sort((a, b) =>
+  //   a.category > b.category ? 1 : b.category > a.category ? -1 : 0
+  // );
 
   const categories = [];
   let currentCategory = menuItems[0].category;
@@ -68,7 +80,6 @@ export default function loadMenu() {
     if (menuItems[i].category !== currentCategory) {
       contentDiv.append(currentCategoryHeader, currentCategoryDiv);
       currentCategory = menuItems[i].category;
-      console.log(currentCategory);
       currentCategoryDiv = document.createElement('div');
       currentCategoryHeader = document.createElement('h2');
       currentCategoryDiv.setAttribute('id', currentCategory);

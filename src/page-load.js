@@ -7,8 +7,8 @@ export default function loadPage() {
   console.log('page-load.js called');
 
   createHeader();
-  //   loadHome();
-  loadMenu();
+  loadHome();
+  // loadMenu();
 }
 
 function createHeader() {
@@ -34,5 +34,24 @@ function createHeader() {
   // header.appendChild(restaurantName);
   header.appendChild(nav);
 
-  contentDiv.appendChild(header);
+  document.body.insertBefore(header, contentDiv);
+
+  home.addEventListener('click', () => {
+    clearContents();
+    loadHome();
+  });
+  menu.addEventListener('click', () => {
+    clearContents();
+    loadMenu();
+  });
+  contact.addEventListener('click', () => {
+    clearContents();
+    loadContact();
+  });
+}
+
+function clearContents() {
+  while (contentDiv.firstChild) {
+    contentDiv.removeChild(contentDiv.firstChild);
+  }
 }
