@@ -14,6 +14,7 @@ function createHeader() {
   const header = document.createElement('header');
   const restaurantName = document.createElement('h1');
   restaurantName.textContent = "Ralph's Restaurant";
+  restaurantName.setAttribute('id', 'restaurant-name-header');
 
   // Home Menu Contact
   const nav = document.createElement('nav');

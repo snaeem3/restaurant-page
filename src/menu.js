@@ -55,4 +55,10 @@ export default function loadMenu() {
     currentCategoryDiv.append(menuItemDiv);
   }
   contentDiv.append(currentCategoryDiv);
+
+  const foodDisclaimer = document.createElement('em');
+  foodDisclaimer.setAttribute('id', 'food-disclaimer');
+  foodDisclaimer.textContent =
+    'Consuming raw or undercooked foods may increase your risk of food bourne illness';
+  contentDiv.append(foodDisclaimer);
 }

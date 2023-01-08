@@ -6,8 +6,7 @@ export default function loadHome() {
   loadHero();
   // loadReviews();
   loadHoursAndLocation();
-  // loadRestaurantHours();
-  // loadLocation();
+  // loadFooter();
 }
 
 function loadImg() {
@@ -19,6 +18,7 @@ function loadImg() {
 function loadHero() {
   const heroDiv = document.createElement('div');
   heroDiv.setAttribute('id', 'restaurant-hero');
+  heroDiv.classList.add('hero');
   loadDescription(heroDiv);
   contentDiv.appendChild(heroDiv);
 }
@@ -26,7 +26,7 @@ function loadHero() {
 function loadDescription(parentDiv) {
   const descriptionText = document.createElement('p');
   descriptionText.textContent =
-    "We welcome you to Ralph's restaurant with locations all over the tri-state area. Since 2002, our restaurants have been serving award-winning food and drinks to give our customers an outstanding experience. We cannot wait to serve you!";
+    "We welcome you to Ralph's restaurant located in the heart of tri-state area. Since 2002, our restaurant has been serving award-winning food and drinks to give our customers an outstanding experience. We cannot wait to serve you!";
   parentDiv.appendChild(descriptionText);
 
   descriptionText.setAttribute('id', 'restaurant-description');

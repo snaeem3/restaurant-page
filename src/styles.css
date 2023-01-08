@@ -3,6 +3,8 @@
     --section-padding: 8px;
     --section-margin: 8px;
     --border-radius-default: .75rem;
+    --primary-color: green;
+    --shade-color:rgba(73, 73, 73, 0.822);
 }
 
 * {
@@ -36,10 +38,10 @@ li {
     cursor: pointer;
 }
 
-h1 {
+#restaurant-name-header {
     text-align: center;
     padding: var(--section-padding);
-    background: green;
+    background: var(--primary-color);
 }
 
 #content {
@@ -47,22 +49,27 @@ h1 {
     flex-direction: column;
 }
 
-#restaurant-hero {
+.hero {
     align-self: center;
-    background-image: url('./images/restaurant1.jpg');
     background-size: cover;
-    background-position: center bottom;
     padding: 200px var(--section-padding);
-    /* margin: 0 var(--section-margin); */
+    background-image: url('./images/restaurant2.jpg');
     width: clamp(75vw, 90vw, 600px);
-    position: relative;
 
     display: flex;
     justify-content: center;
 }
 
+#restaurant-hero {
+    background-image: url('./images/restaurant1.jpg');
+    background-position: center bottom;
+    /* margin: 0 var(--section-margin); */
+    position: relative;
+
+}
+
 #restaurant-description {
-    background: rgba(73, 73, 73, 0.822);
+    background: var(--shade-color);
     padding: var(--section-padding);
     border-radius: var(--border-radius-default);
     text-align: center;
@@ -70,9 +77,37 @@ h1 {
 }
 
 #hours-location {
+    align-self: center;
     display: flex;
     justify-content: space-evenly;
     text-align: center;
     background: rgb(29, 29, 29);
     padding: var(--section-padding);
+    width: clamp(75vw, 90vw, 600px);
+
+}
+
+.category {
+    text-align: center;
+    padding: var(--section-padding);
+}
+
+.category-header {
+    color: var(--primary-color);
+}
+
+.menu-item {
+    padding: var(--section-padding);
+}
+
+.description {
+    font-style: italic;
+}
+
+#contact-header {
+    background: var(--shade-color);
+    padding: var(--section-padding);
+    text-align: center;
+    border-radius: var(--border-radius-default);
+    width: fit-content;
 }

@@ -1,15 +1,23 @@
 const contentDiv = document.querySelector('#content');
 
 export default function loadContact() {
-  loadHeader();
+  loadHero();
   loadContactInfo();
   loadContactForm();
 }
+function loadHero() {
+  const heroDiv = document.createElement('div');
+  heroDiv.setAttribute('id', 'contact-hero');
+  heroDiv.classList.add('hero');
+  loadHeader(heroDiv);
+  contentDiv.appendChild(heroDiv);
+}
 
-function loadHeader() {
+function loadHeader(parentDiv) {
   const contactHeader = document.createElement('h1');
   contactHeader.textContent = 'Contact Us Today!';
-  contentDiv.appendChild(contactHeader);
+  parentDiv.appendChild(contactHeader);
+  contactHeader.setAttribute('id', 'contact-header');
 }
 
 function loadContactInfo() {
