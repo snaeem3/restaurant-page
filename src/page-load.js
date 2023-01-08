@@ -5,11 +5,8 @@ import loadContact from './contact';
 const contentDiv = document.querySelector('#content');
 
 export default function loadPage() {
-  console.log('page-load.js called');
-
   createHeader();
   loadHome();
-  // loadMenu();
 }
 
 function createHeader() {
