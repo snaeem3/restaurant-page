@@ -2,7 +2,7 @@
     --color-shadow: grey;
     --section-padding: 8px;
     --section-margin: 8px;
-    --border-radius-default: 8px;
+    --border-radius-default: .75rem;
 }
 
 * {
@@ -18,9 +18,61 @@ img {
 body {
     display: flex;
     flex-direction: column;
+    /* align-items: center; */
+    background: rgb(65, 65, 65);
+    color: white;
 }
 
 nav ul {
+    justify-content: center;
     display: flex;
+    gap: 3rem;
+    font-size: 2rem;
     list-style: none;
+    margin: var(--section-margin);
+}
+
+li {
+    cursor: pointer;
+}
+
+h1 {
+    text-align: center;
+    padding: var(--section-padding);
+    background: green;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+}
+
+#restaurant-hero {
+    align-self: center;
+    background-image: url('./images/restaurant1.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    padding: 200px var(--section-padding);
+    /* margin: 0 var(--section-margin); */
+    width: clamp(75vw, 90vw, 600px);
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+}
+
+#restaurant-description {
+    background: rgba(73, 73, 73, 0.822);
+    padding: var(--section-padding);
+    border-radius: var(--border-radius-default);
+    text-align: center;
+    width: 30rem;
+}
+
+#hours-location {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    background: rgb(29, 29, 29);
+    padding: var(--section-padding);
 }

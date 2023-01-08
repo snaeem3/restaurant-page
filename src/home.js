@@ -3,11 +3,11 @@ import restaurantImgSrc from './images/restaurant1.jpg';
 const contentDiv = document.querySelector('#content');
 
 export default function loadHome() {
-  loadImg();
-  loadDescription();
+  loadHero();
   // loadReviews();
-  loadRestaurantHours();
-  loadLocation();
+  loadHoursAndLocation();
+  // loadRestaurantHours();
+  // loadLocation();
 }
 
 function loadImg() {
@@ -16,16 +16,35 @@ function loadImg() {
   contentDiv.appendChild(restaurantImg);
 }
 
-function loadDescription() {
+function loadHero() {
+  const heroDiv = document.createElement('div');
+  heroDiv.setAttribute('id', 'restaurant-hero');
+  loadDescription(heroDiv);
+  contentDiv.appendChild(heroDiv);
+}
+
+function loadDescription(parentDiv) {
   const descriptionText = document.createElement('p');
   descriptionText.textContent =
     "We welcome you to Ralph's restaurant with locations all over the tri-state area. Since 2002, our restaurants have been serving award-winning food and drinks to give our customers an outstanding experience. We cannot wait to serve you!";
-  contentDiv.appendChild(descriptionText);
+  parentDiv.appendChild(descriptionText);
+
+  descriptionText.setAttribute('id', 'restaurant-description');
 }
 
-function loadRestaurantHours() {
+function loadHoursAndLocation() {
+  const hoursAndLocDiv = document.createElement('div');
+  hoursAndLocDiv.setAttribute('id', 'hours-location');
+  loadRestaurantHours(hoursAndLocDiv);
+  loadLocation(hoursAndLocDiv);
+  contentDiv.appendChild(hoursAndLocDiv);
+}
+
+function loadRestaurantHours(parentDiv) {
+  const hoursDiv = document.createElement('div');
   const hoursHeader = document.createElement('h2');
   hoursHeader.textContent = 'Hours';
+  hoursHeader.setAttribute('id', 'hours-header');
 
   const hoursArray = [
     ['Monday', '4:00 PM - 10:00 PM'],
@@ -39,7 +58,10 @@ function loadRestaurantHours() {
 
   const hoursTable = arrayToTable(hoursArray);
 
-  contentDiv.append(hoursHeader, hoursTable);
+  hoursTable.setAttribute('id', 'hours-table');
+
+  hoursDiv.append(hoursHeader, hoursTable);
+  parentDiv.appendChild(hoursDiv);
 
   function arrayToTable(tableData) {
     const tableResult = document.createElement('table');
@@ -57,11 +79,17 @@ function loadRestaurantHours() {
   }
 }
 
-function loadLocation() {
+function loadLocation(parentDiv) {
+  const locationDiv = document.createElement('div');
   const locationHeader = document.createElement('h2');
   locationHeader.textContent = 'Address';
+  locationHeader.setAttribute('id', 'location-header');
+
   const address = document.createElement('p');
   address.innerText = '123 Main St \nNew Fork City, New York \n10234';
 
-  contentDiv.append(locationHeader, address);
+  locationDiv.append(locationHeader, address);
+  parentDiv.appendChild(locationDiv);
+
+  address.setAttribute('id', 'address');
 }
