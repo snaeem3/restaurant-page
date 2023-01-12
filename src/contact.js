@@ -40,8 +40,12 @@ function loadContactForm() {
   const nameInput = document.createElement('input');
   setInputValues(nameInput, 'text', 'nameInput', 'nameInput', 'Name');
 
+  const nameLabel = createLabel('Name ', nameInput);
+
   const emailInput = document.createElement('input');
   setInputValues(emailInput, 'email', 'emailInput', 'emailInput', 'Email');
+
+  const emailLabel = createLabel('Email ', emailInput);
 
   const phoneNumberInput = document.createElement('input');
   setInputValues(
@@ -52,6 +56,9 @@ function loadContactForm() {
     'Phone Number'
   );
 
+  const phoneNumberLabel = createLabel('Phone Number ', phoneNumberInput);
+
+  // Subject Input
   const subjectInput = document.createElement('select');
   subjectInput.setAttribute('name', 'subjectInput');
   const subjectPlaceholder = document.createElement('option');
@@ -68,7 +75,9 @@ function loadContactForm() {
     subjectInput.appendChild(currentSubject);
   });
 
-  const messageInput = document.createElement('input');
+  const subjectLabel = createLabel(subjectPlaceholder.text, subjectInput);
+
+  const messageInput = document.createElement('textarea');
   setInputValues(
     messageInput,
     'text',
@@ -77,16 +86,25 @@ function loadContactForm() {
     'Your Message'
   );
 
+  const messageLabel = createLabel('Your Message ', messageInput);
+
   const submitBtn = document.createElement('button');
   submitBtn.setAttribute('type', 'submit');
   submitBtn.setAttribute('value', 'Submit');
   submitBtn.textContent = 'Submit';
 
+  nameLabel.append(nameInput);
+
   contactForm.append(
+    nameLabel,
     nameInput,
+    emailLabel,
     emailInput,
+    phoneNumberLabel,
     phoneNumberInput,
+    subjectLabel,
     subjectInput,
+    messageLabel,
     messageInput,
     submitBtn
   );
@@ -98,5 +116,12 @@ function loadContactForm() {
     input.setAttribute('name', name);
     input.setAttribute('id', id);
     input.setAttribute('placeholder', placeholder);
+  }
+
+  function createLabel(text, inputName) {
+    const label = document.createElement('label');
+    label.textContent = text;
+    label.htmlFor = inputName;
+    return label;
   }
 }
