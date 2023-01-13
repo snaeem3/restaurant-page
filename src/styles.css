@@ -37,12 +37,17 @@ body {
 
 header {
   padding: var(--section-padding);
+  position: sticky;
+  top: 0px;
+  background: inherit;
+  z-index: 1000;
+  border-bottom: black solid 3px;
 }
 
 nav ul {
   justify-content: center;
   display: flex;
-  gap: 3rem;
+  gap: 1rem;
   font-size: 2rem;
   list-style: none;
   margin: var(--section-margin);
@@ -54,7 +59,7 @@ li {
 
 nav li {
   border-bottom: 2px solid transparent;
-  padding: var(--section-padding);
+  padding: var(--section-padding) 2rem;
   opacity: 0.8;
 }
 
