@@ -32,6 +32,7 @@ function createHeader() {
 
   header.appendChild(nav);
 
+  // Insert header and restaurant name
   document.body.insertBefore(header, contentDiv);
   document.body.insertBefore(restaurantName, contentDiv);
 

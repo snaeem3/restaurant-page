@@ -7,6 +7,8 @@ export default function loadMenu() {
   // menuItems.sort((a, b) =>
   //   a.category > b.category ? 1 : b.category > a.category ? -1 : 0
   // );
+  const menuDiv = document.createElement('div');
+  menuDiv.setAttribute('id', 'menu');
 
   const categories = [];
   let currentCategory = menuItems[0].category;
@@ -40,7 +42,7 @@ export default function loadMenu() {
 
     // create new category
     if (menuItems[i].category !== currentCategory) {
-      contentDiv.append(currentCategoryDiv);
+      menuDiv.append(currentCategoryDiv);
       currentCategory = menuItems[i].category;
       currentCategoryDiv = document.createElement('div');
       currentCategoryHeader = document.createElement('h2');
@@ -54,11 +56,12 @@ export default function loadMenu() {
     }
     currentCategoryDiv.append(menuItemDiv);
   }
-  contentDiv.append(currentCategoryDiv);
+  menuDiv.append(currentCategoryDiv);
 
   const foodDisclaimer = document.createElement('em');
   foodDisclaimer.setAttribute('id', 'food-disclaimer');
   foodDisclaimer.textContent =
     'Consuming raw or undercooked foods may increase your risk of food bourne illness';
-  contentDiv.append(foodDisclaimer);
+  menuDiv.append(foodDisclaimer);
+  contentDiv.append(menuDiv);
 }

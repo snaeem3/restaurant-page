@@ -22,8 +22,11 @@ function loadHeader(parentDiv) {
 
 function loadContactInfo() {
   const contactInfoDiv = document.createElement('div');
+  contactInfoDiv.setAttribute('id', 'contact-info');
   const emailAddress = document.createElement('a');
+  emailAddress.setAttribute('id', 'contact-email-address');
   const phoneNumber = document.createElement('p');
+  phoneNumber.setAttribute('id', 'contact-phone-number');
 
   emailAddress.href = 'mailto:ralphsrestaurant@example.com';
   emailAddress.textContent = 'ralphsrestaurant@example.com';
