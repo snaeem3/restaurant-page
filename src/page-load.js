@@ -36,17 +36,23 @@ function createHeader() {
   document.body.insertBefore(header, contentDiv);
   document.body.insertBefore(restaurantName, contentDiv);
 
-  home.addEventListener('click', () => {
+  home.addEventListener('click', (event) => {
     clearContents();
     loadHome();
+    unHighlightNav();
+    highlightLi(event.target);
   });
-  menu.addEventListener('click', () => {
+  menu.addEventListener('click', (event) => {
     clearContents();
     loadMenu();
+    unHighlightNav();
+    highlightLi(event.target);
   });
-  contact.addEventListener('click', () => {
+  contact.addEventListener('click', (event) => {
     clearContents();
     loadContact();
+    unHighlightNav();
+    highlightLi(event.target);
   });
 }
 
@@ -54,4 +60,15 @@ function clearContents() {
   while (contentDiv.firstChild) {
     contentDiv.removeChild(contentDiv.firstChild);
   }
+}
+
+function highlightLi(li) {
+  li.setAttribute('style', 'background: var(--primary-color)');
+}
+
+function unHighlightNav() {
+  const lis = document.querySelectorAll('nav li');
+  lis.forEach((li) => {
+    li.setAttribute('style', 'background: transparent');
+  });
 }

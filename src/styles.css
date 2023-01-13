@@ -35,6 +35,10 @@ body {
   color: white;
 }
 
+header {
+  padding: var(--section-padding);
+}
+
 nav ul {
   justify-content: center;
   display: flex;
@@ -46,6 +50,21 @@ nav ul {
 
 li {
   cursor: pointer;
+}
+
+nav li {
+  border-bottom: 2px solid transparent;
+  padding: var(--section-padding);
+  opacity: 0.8;
+}
+
+nav li:hover {
+  border-bottom: 2px solid white;
+  opacity: 1;
+}
+
+nav li:focus {
+  color: green;
 }
 
 #restaurant-name-header {
@@ -100,6 +119,7 @@ li {
 #menu {
   background: rgba(43, 43, 43, 0.822);
   padding: var(--section-padding);
+  margin: var(--section-margin);
   border-radius: var(--border-radius-default);
   text-align: center;
 }
@@ -188,6 +208,7 @@ a:link {
   align-items: center;
   background: rgba(43, 43, 43, 0.822);
   padding: calc(2 * var(--section-padding));
+  margin: var(--section-margin);
   border-radius: var(--border-radius-default);
 }
 
