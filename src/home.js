@@ -150,6 +150,7 @@ function loadHoursAndLocation() {
 
 function loadRestaurantHours(parentDiv) {
   const hoursDiv = document.createElement('div');
+  hoursDiv.setAttribute('id', 'hours-container');
   const hoursHeader = document.createElement('h2');
   hoursHeader.textContent = 'Hours';
   hoursHeader.setAttribute('id', 'hours-header');
@@ -189,15 +190,18 @@ function loadRestaurantHours(parentDiv) {
 
 function loadLocation(parentDiv) {
   const locationDiv = document.createElement('div');
+  locationDiv.setAttribute('id', 'location-div');
   const locationHeader = document.createElement('h2');
   locationHeader.textContent = 'Address';
   locationHeader.setAttribute('id', 'location-header');
 
   const address = document.createElement('p');
+  address.setAttribute('id', 'address');
   address.innerText = '123 Main St \nNew Fork City, New York \n10234';
 
-  locationDiv.append(locationHeader, address);
-  parentDiv.appendChild(locationDiv);
-
-  address.setAttribute('id', 'address');
+  const map = document.createElement('iframe');
+  map.src =
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111411.8685543505!2d-72.28642254440686!3d77.39921537050884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc05ce247c4a19029!2zNzfCsDIzJzM4LjUiTiA3McKwNTYnMDguOCJX!5e0!3m2!1sen!2sus!4v1673736498156!5m2!1sen!2sus';
+  locationDiv.append(locationHeader, address, map);
+  parentDiv.append(locationDiv);
 }
