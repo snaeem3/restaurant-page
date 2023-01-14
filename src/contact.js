@@ -40,6 +40,11 @@ function loadContactForm() {
   const contactForm = document.createElement('form');
   contactForm.setAttribute('id', 'contactForm');
 
+  const contactDescription = document.createElement('p');
+  contactDescription.setAttribute('id', 'contact-description');
+  contactDescription.textContent =
+    'Please send us a message and we will get back to you as soon as we can! Thank you.';
+
   const nameInput = document.createElement('input');
   setInputValues(nameInput, 'text', 'nameInput', 'nameInput', 'Name');
 
@@ -99,6 +104,7 @@ function loadContactForm() {
   nameLabel.append(nameInput);
 
   contactForm.append(
+    contactDescription,
     nameLabel,
     nameInput,
     emailLabel,

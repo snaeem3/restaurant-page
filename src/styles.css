@@ -4,7 +4,8 @@
   --section-margin: 8px;
   --border-radius-default: 0.75rem;
   --primary-color: rgb(0, 175, 152);
-  --shade-color: rgba(73, 73, 73, 0.822);
+  --primary-color-dark: rgb(0, 122, 106);
+  --shade-color: rgba(73, 73, 73, 0.856);
 }
 
 *,
@@ -25,6 +26,22 @@ textarea {
 
 img {
   max-width: 100vw;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 32px;
+  padding: var(--section-padding);
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition-duration: 0.2s;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--primary-color-dark);
 }
 
 body {
@@ -100,8 +117,11 @@ nav li:focus {
 #restaurant-hero {
   background-image: url("./images/restaurant1.jpg");
   background-position: center bottom;
-  /* margin: 0 var(--section-margin); */
   position: relative;
+
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
 }
 
 #restaurant-description {
@@ -109,6 +129,11 @@ nav li:focus {
   padding: 2rem 3rem;
   border-radius: var(--border-radius-default);
   text-align: center;
+}
+
+#restaurant-hero button {
+  width: 75%;
+  border: solid 2px black;
 }
 
 #hours-location {
@@ -178,6 +203,14 @@ nav li:focus {
     align-items: center;
     flex-direction: row;
   }
+
+  #restaurant-hero {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #restaurant-description {
+    grid-column: 1 / 3;
+  }
 }
 
 #contact-info > * {
@@ -222,14 +255,29 @@ a:link {
   padding: var(--section-padding);
 }
 
-#messageInput {
-  padding-bottom: 100px;
+#contact-description {
+  margin-bottom: var(--section-margin);
+  border-bottom: solid 2px var(--primary-color);
 }
 
-#contactForm > :not(label) {
+#messageInput {
+  padding-bottom: 100px;
+  resize: vertical;
+}
+
+#contactForm > input,
+textarea,
+select {
   margin-bottom: 1.5rem;
 }
 
 #contactForm label {
   font-weight: 600;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding: var(--section-padding);
+  background: black;
 }

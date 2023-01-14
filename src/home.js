@@ -20,6 +20,15 @@ function loadHero() {
   heroDiv.setAttribute('id', 'restaurant-hero');
   heroDiv.classList.add('hero');
   loadDescription(heroDiv);
+
+  const reservationBtn = document.createElement('button');
+  const orderOnlineBtn = document.createElement('button');
+
+  reservationBtn.textContent = 'Reserve a Table';
+  orderOnlineBtn.textContent = 'Order Online';
+
+  heroDiv.append(reservationBtn, orderOnlineBtn);
+
   contentDiv.appendChild(heroDiv);
 }
 

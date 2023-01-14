@@ -7,6 +7,7 @@ const contentDiv = document.querySelector('#content');
 export default function loadPage() {
   createHeader();
   loadHome();
+  createFooter();
 }
 
 function createHeader() {
@@ -54,6 +55,15 @@ function createHeader() {
     unHighlightNav();
     highlightLi(event.target);
   });
+}
+
+function createFooter() {
+  const footer = document.createElement('footer');
+  const footerText = document.createElement('p');
+  footerText.textContent = "© 2021 Ralph's Restaurant";
+
+  footer.appendChild(footerText);
+  document.body.appendChild(footer);
 }
 
 function clearContents() {
