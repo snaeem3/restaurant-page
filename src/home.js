@@ -1,12 +1,12 @@
 import restaurantImgSrc from './images/restaurant1.jpg';
+import { reviewQuotes } from './reviewQuotes';
 
 const contentDiv = document.querySelector('#content');
 
 export default function loadHome() {
   loadHero();
-  // loadReviews();
+  loadReviews();
   loadHoursAndLocation();
-  // loadFooter();
 }
 
 function loadImg() {
@@ -39,6 +39,78 @@ function loadDescription(parentDiv) {
   parentDiv.appendChild(descriptionText);
 
   descriptionText.setAttribute('id', 'restaurant-description');
+}
+
+function loadReviews() {
+  const reviewsDiv = document.createElement('div');
+  reviewsDiv.setAttribute('id', 'reviews');
+  const dotContainer = document.createElement('div');
+  dotContainer.classList.add('dot-container');
+  const prevButton = document.createElement('a');
+  prevButton.setAttribute('id', 'prev');
+  prevButton.textContent = '<';
+  const nextButton = document.createElement('a');
+  nextButton.setAttribute('id', 'next');
+  nextButton.textContent = '>';
+
+  for (let i = 0; i < reviewQuotes.length; i++) {
+    reviewsDiv.appendChild(
+      createReview(reviewQuotes[i].text, reviewQuotes[i].author, i)
+    );
+    createDot(dotContainer, i);
+  }
+
+  reviewsDiv.firstChild.classList.add('active');
+
+  reviewsDiv.append(prevButton, nextButton);
+  contentDiv.append(reviewsDiv, dotContainer);
+
+  function createReview(text, author, index) {
+    const reviewDiv = document.createElement('div');
+    reviewDiv.classList.add('review');
+    reviewDiv.setAttribute('id', `review-${index}`);
+
+    const reviewText = document.createElement('blockquote');
+    reviewText.textContent = text;
+
+    const reviewAuthor = document.createElement('p');
+    reviewAuthor.classList.add('author');
+    reviewAuthor.textContent = author;
+
+    reviewDiv.append(reviewText, reviewAuthor);
+
+    return reviewDiv;
+  }
+
+  function createDot(parentContainer, index) {
+    const dot = document.createElement('a');
+    dot.classList.add(`dot`);
+    dot.setAttribute('id', `dot-${index}`);
+    parentContainer.appendChild(dot);
+
+    dot.addEventListener('click', (event) => {
+      changeSlide(index);
+    });
+  }
+
+  // Slide controls
+  const slideIndex = 1;
+
+  function changeSlide(index) {
+    const reviews = document.querySelectorAll('.review');
+    reviews.forEach((review) => {
+      // Remove active class from all reviews
+      review.classList.remove('active');
+      const reviewIndex = parseInt(
+        review.id.substring(review.id.indexOf('-') + 1)
+      );
+
+      // Add active class to selected review
+      if (reviewIndex === index) {
+        review.classList.add('active');
+      }
+    });
+  }
 }
 
 function loadHoursAndLocation() {

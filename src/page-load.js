@@ -1,6 +1,7 @@
 import loadHome from './home';
 import loadMenu from './menu';
 import loadContact from './contact';
+import gitHubIcon from './images/github.svg';
 
 const contentDiv = document.querySelector('#content');
 
@@ -60,9 +61,16 @@ function createHeader() {
 function createFooter() {
   const footer = document.createElement('footer');
   const footerText = document.createElement('p');
-  footerText.textContent = "© 2021 Ralph's Restaurant";
+  footerText.textContent = "© 2021 Ralph's Restaurant. Site by Sameer N.";
 
-  footer.appendChild(footerText);
+  const githubIconImg = new Image();
+  githubIconImg.src = gitHubIcon;
+
+  const githubLink = document.createElement('a');
+  githubLink.setAttribute('href', 'https://github.com/snaeem3/');
+  githubLink.appendChild(githubIconImg);
+
+  footer.append(footerText, githubLink);
   document.body.appendChild(footer);
 }
 

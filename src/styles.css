@@ -137,6 +137,45 @@ nav li:focus {
   border: solid 2px black;
 }
 
+#reviews {
+  position: relative;
+}
+
+.review {
+  display: block;
+}
+
+.review:not(.active) {
+  display: none;
+}
+
+.dot-container {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+}
+
+#prev,
+#next {
+  position: absolute;
+  top: 4px;
+  padding: var(--section-padding);
+}
+#prev {
+  right: 100%;
+}
+#next {
+  left: 100%;
+}
+
 #hours-location {
   align-self: center;
   display: flex;
@@ -319,6 +358,7 @@ select {
 footer {
   display: flex;
   justify-content: center;
+  gap: 0.5rem;
   padding: var(--section-padding);
   background: black;
 }
