@@ -38,6 +38,9 @@ export default function loadMenu() {
     menuItemDescription.textContent = menuItems[i].description;
     menuItemCost.textContent = menuItems[i].cost;
 
+    if (menuItems[i].vegetarian) {
+      menuItemName.classList.add('vegetarian');
+    }
     menuItemDiv.append(menuItemName, menuItemDescription, menuItemCost);
 
     // create new category
@@ -58,10 +61,18 @@ export default function loadMenu() {
   }
   menuDiv.append(currentCategoryDiv);
 
+  const iconLegend = document.createElement('div');
+  iconLegend.setAttribute('id', 'iconLegend');
+  const vegIconLegend = document.createElement('p');
+  vegIconLegend.setAttribute('id', 'vegIconLegend');
+  vegIconLegend.textContent = 'Vegetarian';
+
+  iconLegend.append(vegIconLegend);
+
   const foodDisclaimer = document.createElement('em');
   foodDisclaimer.setAttribute('id', 'food-disclaimer');
   foodDisclaimer.textContent =
     'Consuming raw or undercooked foods may increase your risk of food bourne illness';
-  menuDiv.append(foodDisclaimer);
+  menuDiv.append(iconLegend, foodDisclaimer);
   contentDiv.append(menuDiv);
 }

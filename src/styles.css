@@ -78,6 +78,7 @@ nav li {
   border-bottom: 2px solid transparent;
   padding: var(--section-padding) 2rem;
   opacity: 0.8;
+  transition: 0.1s;
 }
 
 nav li:hover {
@@ -174,8 +175,40 @@ nav li:focus {
   margin: var(--section-margin) 0;
 }
 
+.food-name img {
+  height: 1.5rem;
+}
+
+.vegetarian::after {
+  background-image: url("./images/plant.svg");
+  background-size: 1.5rem 1.5rem;
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  content: "";
+}
+
 .description {
   font-style: italic;
+}
+
+#iconLegend {
+  padding: var(--section-padding);
+  border-top: double 4px var(--primary-color);
+}
+
+#vegIconLegend {
+  padding: var(--section-padding);
+}
+
+#vegIconLegend::before {
+  background-image: url("./images/plant.svg");
+  background-size: 1.5rem 1.5rem;
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  content: "";
+  margin: 0 var(--section-margin);
 }
 
 #contact-header {
@@ -195,6 +228,7 @@ nav li:focus {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   color: black;
 }
 
@@ -215,6 +249,8 @@ nav li:focus {
 
 #contact-info > * {
   padding: var(--section-padding);
+  display: flex;
+  gap: 0.75rem;
 }
 
 a:link {
@@ -226,8 +262,9 @@ a:link {
 }
 
 #contact-email-address::before {
-  content: "E-Mail: ";
+  content: url(./images/mail.svg);
   color: black;
+  align-self: flex-start;
 }
 
 #contact-info::before {
@@ -237,7 +274,9 @@ a:link {
 }
 
 #contact-phone-number::before {
-  content: "Phone Number: ";
+  /* content: "Phone Number: "; */
+  content: url(./images/phone.svg);
+  align-self: flex-start;
 }
 
 #contactForm {
@@ -258,6 +297,8 @@ a:link {
 #contact-description {
   margin-bottom: var(--section-margin);
   border-bottom: solid 2px var(--primary-color);
+  text-align: center;
+  font-style: italic;
 }
 
 #messageInput {

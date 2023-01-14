@@ -101,6 +101,11 @@ function loadContactForm() {
   submitBtn.setAttribute('value', 'Submit');
   submitBtn.textContent = 'Submit';
 
+  // Prevent reload on submit button click
+  contactForm.onsubmit = (e) => {
+    e.preventDefault();
+  };
+
   nameLabel.append(nameInput);
 
   contactForm.append(
