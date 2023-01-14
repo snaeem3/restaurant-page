@@ -94,10 +94,17 @@ function loadReviews() {
   }
 
   // Slide controls
-  const slideIndex = 1;
 
   function changeSlide(index) {
     const reviews = document.querySelectorAll('.review');
+
+    // Check if index is in bounds
+    if (index > reviews.length - 1) {
+      index = 0;
+    } else if (index < 0) {
+      index = reviews.length - 1;
+    }
+
     reviews.forEach((review) => {
       // Remove active class from all reviews
       review.classList.remove('active');
@@ -111,6 +118,23 @@ function loadReviews() {
       }
     });
   }
+
+  function getCurrentIndex() {
+    const currentReview = document.querySelector('.active');
+    const currentReviewIndex = parseInt(
+      currentReview.id.substring(currentReview.id.indexOf('-') + 1)
+    );
+
+    return currentReviewIndex;
+  }
+
+  nextButton.addEventListener('click', () => {
+    changeSlide(getCurrentIndex() + 1);
+  });
+
+  prevButton.addEventListener('click', () => {
+    changeSlide(getCurrentIndex() - 1);
+  });
 }
 
 function loadHoursAndLocation() {
