@@ -42,6 +42,8 @@ function loadDescription(parentDiv) {
 }
 
 function loadReviews() {
+  const reviewContainer = document.createElement('div');
+  reviewContainer.setAttribute('id', 'reviews-container');
   const reviewsDiv = document.createElement('div');
   reviewsDiv.setAttribute('id', 'reviews');
   const dotContainer = document.createElement('div');
@@ -63,7 +65,8 @@ function loadReviews() {
   reviewsDiv.firstChild.classList.add('active');
 
   reviewsDiv.append(prevButton, nextButton);
-  contentDiv.append(reviewsDiv, dotContainer);
+  reviewContainer.append(reviewsDiv, dotContainer);
+  contentDiv.append(reviewContainer);
 
   function createReview(text, author, index) {
     const reviewDiv = document.createElement('div');

@@ -1,16 +1,16 @@
 export const reviewQuotes = [
   {
-    text: 'lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    text: "The best food I've ever eaten!",
     rating: 5,
     author: 'Bill G.',
   },
   {
-    text: 'lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    text: "Ralph's restaurant is my home away from home!",
     rating: 5,
     author: 'Jeff B.',
   },
   {
-    text: 'lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    text: 'Friendly staff and excellent service!',
     rating: 5,
     author: 'Elon M.',
   },
