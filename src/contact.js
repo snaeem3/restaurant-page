@@ -10,6 +10,21 @@ function loadHero() {
   heroDiv.setAttribute('id', 'contact-hero');
   heroDiv.classList.add('hero');
   loadHeader(heroDiv);
+
+  // Photo credit
+  const p = document.createElement('p');
+  p.classList.add('photo-credit');
+  p.textContent = 'Photo by  at ';
+  const unsplashAuthor = document.createElement('a');
+  unsplashAuthor.href = 'https://unsplash.com/@jaywennington';
+  unsplashAuthor.textContent = 'Jay Wennington';
+  const unsplashLink = document.createElement('a');
+  unsplashLink.href = 'https://unsplash.com/photos/N_Y88TWmGwA';
+  unsplashLink.textContent = 'Unsplash';
+
+  p.insertBefore(unsplashAuthor, p.childNodes[0].splitText(9));
+  p.appendChild(unsplashLink);
+  heroDiv.appendChild(p);
   contentDiv.appendChild(heroDiv);
 }
 

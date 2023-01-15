@@ -27,8 +27,22 @@ function loadHero() {
   reservationBtn.textContent = 'Reserve a Table';
   orderOnlineBtn.textContent = 'Order Online';
 
-  heroDiv.append(reservationBtn, orderOnlineBtn);
+  // Photo credit
+  const p = document.createElement('p');
+  p.classList.add('photo-credit');
+  p.textContent = 'Photo by  at ';
+  const unsplashAuthor = document.createElement('a');
+  unsplashAuthor.href = 'https://unsplash.com/@brodatafotografia';
+  unsplashAuthor.textContent = 'Piotr Szulawski';
+  const unsplashLink = document.createElement('a');
+  unsplashLink.href = 'https://unsplash.com/photos/DCmUhk54F6M';
+  unsplashLink.textContent = 'Unsplash';
 
+  p.insertBefore(unsplashAuthor, p.childNodes[0].splitText(9));
+  p.appendChild(unsplashLink);
+
+  heroDiv.append(reservationBtn, orderOnlineBtn);
+  heroDiv.appendChild(p);
   contentDiv.appendChild(heroDiv);
 }
 

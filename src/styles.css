@@ -114,9 +114,19 @@ nav li:focus {
   background-image: url("./images/restaurant2.jpg");
   width: clamp(75vw, 90vw, 600px);
   font-size: 2rem;
+  position: relative;
 
   display: flex;
   justify-content: center;
+}
+
+.photo-credit {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 0.8rem;
+  padding: var(--section-padding);
+  background: rgba(128, 128, 128, 0.103);
 }
 
 #restaurant-hero {
