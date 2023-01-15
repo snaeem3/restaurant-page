@@ -63,6 +63,7 @@ function loadReviews() {
   }
 
   reviewsDiv.firstChild.classList.add('active');
+  dotContainer.firstChild.classList.add('active');
 
   reviewsDiv.append(prevButton, nextButton);
   reviewContainer.append(reviewsDiv, dotContainer);
@@ -100,6 +101,7 @@ function loadReviews() {
 
   function changeSlide(index) {
     const reviews = document.querySelectorAll('.review');
+    const dots = document.querySelectorAll('.dot');
 
     // Check if index is in bounds
     if (index > reviews.length - 1) {
@@ -118,6 +120,17 @@ function loadReviews() {
       // Add active class to selected review
       if (reviewIndex === index) {
         review.classList.add('active');
+      }
+    });
+
+    dots.forEach((dot) => {
+      // Remove active class from all dots
+      dot.classList.remove('active');
+      const reviewIndex = parseInt(dot.id.substring(dot.id.indexOf('-') + 1));
+
+      // Add active class to selected dot
+      if (reviewIndex === index) {
+        dot.classList.add('active');
       }
     });
   }
